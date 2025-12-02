@@ -161,31 +161,50 @@
                     <!-- Feedback Form -->
                     <p>We value your opinion! Please tell us what you think about our window tinting work, our staff, or your overall experience with Desert Tinting. If you include your contact information, we may reach out to thank you or follow up on your feedback.</p>
 
-                    <form method="POST" action="nortbots.htm" webbot-action="--WEBBOT-SELF--" onSubmit="location.href='nortbots.htm';return false;" webbot-onSubmit>
-                        <input TYPE="hidden" NAME="VTI-GROUP" VALUE="0">
+                    <form onsubmit="sendEmail(); return false;">
+    <h3>Your Comments</h3>
+    <p><textarea id="comments" rows="10" cols="45"></textarea></p>
 
-                        <h3>Your Comments</h3>
-                        <p><textarea name="Comments" rows="10" cols="45"></textarea></p>
+    <h3>Feedback Type</h3>
+    <p>
+        <select id="category">
+            <option selected>Service Quality</option>
+            <option>Product Quality</option>
+            <option>Website</option>
+            <option>Customer Service</option>
+            <option>Other</option>
+        </select>
+    </p>
 
-                        <h3>Feedback Type</h3>
-                        <p><select name="Category">
-<option selected>Service Quality</option>
-<option>Product Quality</option>
-<option>Website</option>
-<option>Customer Service</option>
-<option>Other</option>
-</select></p>
+    <h3>Your Contact Information (optional)</h3>
+    <p>
+        Name:<br>
+        <input type="text" id="name" size="45"><br><br>
+        Phone Number:<br>
+        <input type="text" id="phone" size="45"><br><br>
+        Email Address:<br>
+        <input type="text" id="email" size="45"><br><br>
+    </p>
 
-                        <h3>Your Contact Information (optional)</h3>
-                        <p>
-                            Name:<br>
-                            <input type="text" name="Name" size="45"><br><br> Phone Number:<br>
-                            <input type="text" name="Phone" size="45"><br><br> Email Address:<br>
-                            <input type="text" name="Email" size="45"><br><br>
-                        </p>
+    <p><input type="submit" value="Submit Feedback"> <input type="reset" value="Reset Form"></p>
+</form>
 
-                        <p><input type="SUBMIT" value="Submit Feedback"> <input type="RESET" value="Reset Form"></p>
-                    </form>
+<script>
+function sendEmail() {
+    var name = encodeURIComponent(document.getElementById('name').value);
+    var phone = encodeURIComponent(document.getElementById('phone').value);
+    var email = encodeURIComponent(document.getElementById('email').value);
+    var category = encodeURIComponent(document.getElementById('category').value);
+    var comments = encodeURIComponent(document.getElementById('comments').value);
+
+    var subject = "Desert Tinting Feedback - " + category;
+    var body = "Name: " + name + "%0D%0APhone: " + phone + "%0D%0AEmail: " + email + "%0D%0ACategory: " + category + "%0D%0A%0D%0AComments:%0D%0A" + comments;
+
+    window.location.href = "mailto:deserttinting@gmail.com?subject=" + subject + "&body=" + body;
+}
+</script>
+
+
                     <!-- End of Feedback Form -->
 
                 </font>
