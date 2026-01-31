@@ -1,1 +1,1 @@
-var e=["/gallery/logo.png","/gallery/carlogo.png","/gallery/samples.png","/gallery/heatgun.png","/gallery/squeegee.png","/gallery/livetint.gif"];var l=0;function g(){l++;if(l>=e.length)l=0;document.getElementById("slide").src=e[l]}setInterval(g,3e3);
+var slides=["/gallery/logo.png","/gallery/carlogo.png","/gallery/samples.png","/gallery/heatgun.png","/gallery/squeegee.png","/gallery/livetint.gif"];var current=0;function nextSlide(){current++;if(current>=slides.length)current=0;document.getElementById("slide").src=slides[current]}setInterval(nextSlide,3e3);
