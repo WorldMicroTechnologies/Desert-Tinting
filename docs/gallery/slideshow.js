@@ -1,0 +1,1 @@
+var slides=["/gallery/logo.jpg","/gallery/carlogo.jpg","/gallery/samples.jpg","/gallery/heatgun.jpg","/gallery/squeegee.jpg","/gallery/livetint.gif"];var current=0;function nextSlide(){current++;if(current>=slides.length)current=0;document.getElementById("slide").src=slides[current]}setInterval(nextSlide,3e3);
